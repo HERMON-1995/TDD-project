@@ -1,32 +1,21 @@
 class Solver
   def factorial(num)
-    if num.zero?
-      1
-    elsif num.even?
-      num * factorial(num - 2)
-    else
-      num * factorial(num - 1) * factorial(num - 2)
-    end
+    raise ArgumentError, 'Input must be a non-negative integer' if num.negative?
+
+    return 1 if num.zero?
+
+    (1..num).reduce(:*)
   end
 
   def reverse(word)
-    word.chars.reverse.join
+    word.reverse
   end
 
   def fizzbuzz(num)
-    result = ''
-    (1..num).each do |i|
-      if (i % 3).zero? && (i % 5).zero?
-        result = 'fizzbuzz'
-      elsif (i % 3).zero?
-        result = 'fizz'
-      elsif (i % 5).zero?
-        result = 'buzz'
-      elsif i != 1 && i != num
-        result = i.to_s
-      end
-      result << ' '
-    end
-    result
+    return 'fizzbuzz' if (num % 3).zero? && (num % 5).zero?
+    return 'fizz' if (num % 3).zero?
+    return 'buzz' if (num % 5).zero?
+
+    num.to_s
   end
 end
