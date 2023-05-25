@@ -24,5 +24,29 @@ RSpec.describe Solver do
     end
   end
 
-  # Paste the code here then delete the comment
+  describe '#fizzbuzz' do
+    it 'returns "fizz" when the number is divisible by 3' do
+      solver = Solver.new
+      expect(solver.fizzbuzz(3)).to eq('fizz')
+      expect(solver.fizzbuzz(9)).to eq('fizz')
+    end
+
+    it 'returns "buzz" when the number is divisible by 5' do
+      solver = Solver.new
+      expect(solver.fizzbuzz(5)).to eq('buzz')
+      expect(solver.fizzbuzz(10)).to eq('buzz')
+    end
+
+    it 'returns "fizzbuzz" when the number is divisible by both 3 and 5' do
+      solver = Solver.new
+      expect(solver.fizzbuzz(15)).to eq('fizzbuzz')
+      expect(solver.fizzbuzz(30)).to eq('fizzbuzz')
+    end
+
+    it 'returns the number as a string for any other case' do
+      solver = Solver.new
+      expect(solver.fizzbuzz(2)).to eq('2')
+      expect(solver.fizzbuzz(7)).to eq('7')
+    end
+  end
 end
